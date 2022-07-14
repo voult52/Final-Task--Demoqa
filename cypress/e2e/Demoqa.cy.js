@@ -58,7 +58,7 @@ describe("Demoqa webpage", () => {
     FormPage.Validate_UserData.should("contain.text", "NCR Noida")
   })
 
-  it.only("2. Scenario (Interactions - Sortable)", ()=>{
+  it("2. Scenario (Interactions - Sortable)", ()=>{
 
     const dataTransfer = new DataTransfer();
     // - 2. Scenario ( https://demoqa.com/sortable ) Interactions - Sortable
