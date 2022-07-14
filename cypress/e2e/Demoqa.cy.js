@@ -60,28 +60,21 @@ describe("Demoqa webpage", () => {
 
   it.only("2. Scenario (Interactions - Sortable)", ()=>{
 
-
+    const dataTransfer = new DataTransfer();
     // - 2. Scenario ( https://demoqa.com/sortable ) Interactions - Sortable
     SortPage.visit()
     // - Validate that the values are in order - One, Two, Three, Four, Five, Six
     SortPage.Table_Values.should("have.text", "OneTwoThreeFourFiveSix")
     // - Sort the values in following order - Six, Five, Four, Three, Two, One
-    cy.get('.vertical-list-container').children().eq(0)
     //cy.get('.vertical-list-container > :nth-child(4)')
-    
-    //   const draggable = el[0]  // Pick up this
-    //   cy.get('#cdk-drop-list-1 > :nth-child(4)').then(el => {
-    //     const droppable = el[0]  // Drop over this
-    
-    //     const coords = droppable.getBoundingClientRect()
-    //     draggable.dispatchEvent(new MouseEvent('mousemove'));
-    //     draggable.dispatchEvent(new MouseEvent('mousedown'));
-    //     draggable.dispatchEvent(new MouseEvent('mousemove', {clientX: 10, clientY: 0}));
-    //     draggable.dispatchEvent(new MouseEvent('mousemove', {clientX: coords.x+10, clientY: coords.y+10}));
-    //     draggable.dispatchEvent(new MouseEvent('mouseup'));
-    
-    //   })
+ 
+    SortPage.Switch_TableValues(6,1)
+    SortPage.Switch_TableValues(6,2)
+    SortPage.Switch_TableValues(6,3)
+    SortPage.Switch_TableValues(6,4)
+    SortPage.Switch_TableValues(6,5)
     // - Validate that the values are in order - Six, Five, Four, Three, Two, One
+    SortPage.Table_Values.should("have.text", "SixFiveFourThreeTwoOne")
   })
 
 });
